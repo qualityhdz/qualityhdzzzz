@@ -289,6 +289,16 @@ h1, h2, h3, h4, h5, h6 {
   color: gray;
 }
 
+/* --
+# counter text
+*/
+
+.counter-text = {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 5px;
+}
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -380,7 +390,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu li:hover > a, .nav-menu > .menu-active > a {
-  color: #18d26e;
+  color: #A9A9A9;
 }
 
 .nav-menu > li {
@@ -408,7 +418,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .nav-menu ul li:hover > a {
-  color: #18d26e;
+  color: #A9A9A9;
 }
 
 .nav-menu ul ul {
@@ -841,9 +851,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Facts Section
 --------------------------------*/
 #facts {
-  background: url("../img/facts-bg.jpg") center top no-repeat fixed;
-  background-size: cover;
+  background-color: #000000;
   padding: 60px 0 0 0;
+  background-size: cover;
   position: relative;
 }
 
@@ -854,30 +864,68 @@ body.mobile-nav-active #mobile-nav-toggle {
   right: 0;
   top: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(0, 0, 0, 0);
   z-index: 9;
 }
 
 #facts .container {
-  position: relative;
-  z-index: 10;
+  position: center;
+  z-index: 20;
+}
+
+#facts .counters {
+  text-align: center; /* center text inside all counter columns */
+  color: #fff;        /* make all text white */
 }
 
 #facts .counters span {
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   font-size: 48px;
-  display: block;
-  color: #18d26e;
+  display: inline-block; /* keeps numbers inline instead of stacked */
+  color: #FFFFFF;
+}
+
+#facts .row.counters {
+  display: flex;            /* use flexbox instead of Bootstrap floats */
+  flex-wrap: wrap;          /* allow wrapping on smaller screens */
+  justify-content: center;  /* center the counters horizontally */
+  align-items: stretch;     /* make all columns equal height */
+  text-align: center;       /* ensure text stays centered */
 }
 
 #facts .counters p {
   padding: 0;
-  margin: 0 0 20px 0;
+  margin: 5px 0 20px 0;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  color: #111;
+  color: #FFFFFF;  /* white text instead of dark */
 }
+
+.counter-line {
+  text-align: center;      /* keeps the whole thing centered */
+  white-space: nowrap;     /* prevents wrapping */
+  font-size: 1.25rem;      /* adjust as needed */
+}
+
+.counter-line span {
+  display: inline;         /* make sure the number stays inline */
+}
+.counter-inline {
+  white-space: nowrap;    /* keep in one line */
+  font-size: 1.25rem;     /* adjust text size */
+  text-align: center;     /* align inner text */
+}
+
+#facts .counters .col-lg-3,
+#facts .counters .col-6 {
+  text-align: center;        /* force center alignment */
+  display: flex;             /* use flexbox to control alignment */
+  flex-direction: column;    /* stack "top text", "number", "bottom text" vertically */
+  align-items: center;       /* center everything horizontally */
+  justify-content: center;   /* optional: center vertically inside the column */
+}
+
 
 #facts .facts-img {
   text-align: center;
@@ -1254,7 +1302,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .contact-info a:hover {
-  color: #18d26e;
+  color: #A9A9A9;
 }
 
 #contact .contact-address, #contact .contact-phone, #contact .contact-email {
@@ -1275,7 +1323,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form #sendmessage {
-  color: #18d26e;
+  color: #A9A9A9;
   border: 1px solid #18d26e;
   display: none;
   text-align: center;
@@ -1314,7 +1362,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form button[type="submit"] {
-  background: #18d26e;
+  background: #222222;
   border: 0;
   padding: 10px 30px;
   color: #fff;
@@ -1323,7 +1371,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #contact .form button[type="submit"]:hover {
-  background: #13a456;
+  background: #3b3b3b;
 }
 
 /*--------------------------------------------------------------
