@@ -13,6 +13,7 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+
 a {
   color: #18d26e;
   transition: 0.5s;
@@ -168,9 +169,6 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
 }
 
-#intro .carousel-content {
-  text-align: center;
-}
 
 #intro h2 {
   color: #fff;
@@ -549,14 +547,29 @@ body.mobile-nav-active #mobile-nav-toggle {
 /* Sections Header
 --------------------------------*/
 .section-header h3 {
-  font-size: 32px;
-  color: #fff;
+  font-size: 32px;  
   text-transform: uppercase;
   text-align: center;
   font-weight: 700;
   position: relative;
-  padding-bottom: 15px;
-  font-family: Georgia, serif;
+  padding-bottom: 20px;
+  font-family: math;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Decorative underline */
+.section-header h3::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 3px;
+  background: #fff;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .section-header h3::before {
@@ -587,10 +600,158 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
 }
 
+#startup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+#startup-logo {
+  width: 100px;
+  position: absolute; /* independent centering */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* perfectly centered */
+  transition: transform 0.8s ease;
+  z-index: 2;
+}
+
+#startup-text {
+  color: #fff;
+  font-size: 2rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* start behind logo */
+  opacity: 0; /* hidden initially */
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  z-index: 1;
+}
+
 /* Section with background
 --------------------------------*/
 .section-bg {
+  position: relative;
+  overflow: hidden;
+  background-color: #000; /* base black */
+}
+
+#pricing {
+  color: #fff;
+  text-align: center;
+}
+
+#pricing .section-header h3,
+#pricing .section-header p {
+  color: #fff;
+}
+
+.pricing-box {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0a1f44;
+  border-radius: 15px;
+  padding: 40px 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-box.featured {
+  border-color: #111184;
+  box-shadow: 0 0 40px rgba(0, 100, 233, 1);
+}
+
+.pricing-box h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #FFFFFF;
+}
+
+.pricing-box h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.pricing-box h2 span {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.pricing-box ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.pricing-box ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  font-size: 16px;
+}
+
+.pricing-box ul li:last-child {
+  border-bottom: none;
+}
+
+.btn-pricing {
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 50px;
   background: #141414;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.btn-pricing:hover {
+  background: #0064e9;
+  box-shadow: 0 0 20px rgba(0, 100, 233, 1);
+  color: #FFFFFF
+}
+
+.pricing-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  color: #FFFFFF
+}
+.pricing-box {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.pricing-box.left {
+  transform: translateX(-50px);
+}
+
+.pricing-box.right {
+  transform: translateX(50px);
+}
+
+/* Active state */
+.pricing-box.active.middle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0s; /* Middle pops first */
+}
+
+.pricing-box.active.left,
+.pricing-box.active.right {
+  opacity: 1;
+  transform: translateX(0) translateY(0);
+  transition-delay: 0.3s; /* Delay for side boxes */
 }
 
 /* Featured Services Section
@@ -961,7 +1122,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #portfolio #portfolio-flters li:hover, #portfolio #portfolio-flters li.filter-active {
-  background: black;
+  background: radial-gradient(circle at 50% 50%, rgba(0,50,100,0.05), transparent 70%);
   color: #fff;
 }
 
@@ -1076,6 +1237,38 @@ body.mobile-nav-active #mobile-nav-toggle {
   font-weight: 500;
   font-size: 14px;
   text-transform: uppercase;
+}
+
+/* text section */
+
+.reveal-text {
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  white-space: normal; /* allow normal wrapping */
+}
+
+.reveal-text span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeGlow 0.6s forwards;
+  white-space: pre; /* keep spacing inside spans */
+}
+
+/* Fade + Glow effect */
+@keyframes fadeGlow {
+  0% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  60% {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(24,210,110,0.9);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: none;
+  }
 }
 
 /* Clients Section
@@ -1533,4 +1726,35 @@ body.mobile-nav-active #mobile-nav-toggle {
   text-align: center;
   font-size: 13px;
   color: #ddd;
+}
+
+#intro .carousel-container {
+  display: flex;
+  flex-direction: column;   /* stack heading, paragraph, button */
+  justify-content: center;  /* vertical center */
+  align-items: center;      /* horizontal center */
+  text-align: center;
+}
+
+#intro .carousel-content {
+  text-align: center;
+  max-width: 800px; /* optional: prevent super wide text */
+}
+
+#intro .carousel-content h2,
+#intro .carousel-content p,
+#intro .carousel-content a {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#intro .carousel-content .btn-get-started {
+  display: inline-block; /* shrink to fit content */
+  padding: 10px 25px;
+  font-size: 16px;
+  width: auto;           /* adjusts to content */
+  min-width: unset;
+  text-align: center;    /* centers text inside button */
+  margin-top: 20px;      /* spacing from above text */
+  transition: 0.3s;
 }

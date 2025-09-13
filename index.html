@@ -26,6 +26,13 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
+<div id="startup">
+  <div class="startup-content">
+    <img src="img/uzuki.jpg" alt="Logo" id="startup-logo">
+    <span id="startup-text">Qualityhdz</span>
+  </div>
+</div>
+
 <body>
 
   <header id="header">
@@ -34,7 +41,7 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="#intro">Home</a></li>
-          <li><a href="#about">Prices</a></li>
+          <li><a href="#pricing">Prices</a></li>
           <li><a href="#portfolio">Work</a></li>
           <li class="menu-has-children"><a href="">Contact</a>
             <ul>
@@ -60,9 +67,8 @@
             <div class="carousel-container">
               <div class="carousel-content">
                 <h2>Qualityhdz</h2>
-                <a href="https://discordapp.com/users/768822855840170024" target="_blank" class="discord-button"></a>
-                <a href="https://www.roblox.com/users/54509771/profile" target="_blank" class="roblox-button"></a>
-                <p>Professional scripter, 3y experience</p>
+                <p class="reveal-text">Professional scripter, 3y experience</p>
+                <br>
                 <a href="#portfolio" class="btn-get-started scrollto">Scroll</a>
               </div>
             </div>
@@ -210,72 +216,58 @@
 
     </section>
 
-    <section id="about">
-      <div class="container" style="background-color: black;">
+<section id="pricing" class="section-bg" style="padding: 80px 0;">
+  <div class="container">
+    <div class="section-header">
+      <h3>Pricing Plans</h3>
+      <p>Choose the plan that suits your needs</p>
+    </div>
 
-        <header class="section-header">
-          <h3>Prices</h3>
-          <p>I TAKE BOTH USD AND ROBUX:</p>
-        </header>
-
-        <div class="row about-cols" style="background-color: black;">
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/wo ai ni.png" alt="" class="img-fluid">
-              </div>
-              <h2 class="title"><a href="#">30k+ (105$)</a></h2>
-              <p style="text-align: center;">
-                Offers:
-              </p>
-              <p style="text-align: center;">
-                Clean and optimized code, good progress
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.2s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/wo ai ni.png" alt="" class="img-fluid">
-              </div>
-              <h2 class="title"><a href="#">60k+ (205$)</a></h2>
-              <p style="text-align: center;">
-                Offers:
-              </p>
-              <p style="text-align: center;">
-                Optimized code, Easy to change, very good progress
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="about-col">
-              <div class="img">
-                <img src="img/wo ai ni.png" alt="" class="img-fluid">
-              </div>
-              <h2 class="title"><a href="#">100k+ (345$)</a></h2>
-              <p style="text-align: center;">
-                Offers:
-              </p>
-              <p style="text-align: center;">
-                Constant conversation about the project, constant progress, 
-              </p>
-            </div>
-          </div>
-
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s">
-              <h2 class="title"><a href="#"></a></h2>
-          </div>
-          <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
-            <h1 class="title" style="text-align: center;"><a href="#" style="color: white;">Lets get to work, shall we?</a></h1>
+    <div class="row justify-content-center">
+      <!-- Basic Plan -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="pricing-box">
+          <h4>Basic</h4>
+          <h2>$105<span>/per task</span></h2>
+          <ul>
+            <li>1 Project</li>
+            <li>Basic Support</li>
+            <li>Quick Delivery</li>
+          </ul>
+          <a href="https://discordapp.com/users/768822855840170024" target="_blank" class="btn-pricing">Get Started</a>
         </div>
-
-        </div>
-
       </div>
-    </section>
+
+      <!-- Standard Plan -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="pricing-box featured">
+          <h4>Standard</h4>
+          <h2>$337<span>/per task</span></h2>
+          <ul>
+            <li>1 Project</li>
+            <li>Priority Support</li>
+            <li>Very Quick Delivery</li>
+          </ul>
+          <a href="https://discordapp.com/users/768822855840170024" target="_blank" class="btn-pricing">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="pricing-box">
+          <h4>Premium</h4>
+          <h2>$565<span>/per task</span></h2>
+          <ul>
+            <li>1 Project</li>
+            <li>24/7 Support</li>
+            <li>Immediate Delivery</li>
+          </ul>
+          <a href="https://discordapp.com/users/768822855840170024" target="_blank" class="btn-pricing">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <!--==========================
       Contact Section
@@ -343,6 +335,7 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
 
 </body>
 </html>
