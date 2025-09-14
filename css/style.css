@@ -169,6 +169,69 @@ h1, h2, h3, h4, h5, h6 {
   right: 0;
 }
 
+.counter-section {
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
+  gap: 5rem;
+  flex-wrap: wrap;
+  transform: translateX(-2.45rem);
+}
+
+.counter-container {
+  text-align: center;
+}
+
+.counter-title {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  font-size: 3.5rem;
+  font-weight: bold;
+  gap: 0.05em; /* digits stick together */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+  color: #fff;
+}
+
+/* Digit rolling */
+.digit-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 1.2em;
+  width: 0.7em;
+  display: flex;              /* new: center letters/symbols */
+  justify-content: center;
+  align-items: center;        /* vertical align letters/symbols */
+}
+
+/* Strip animation for digits stays the same */
+.digit-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.digit-strip span {
+  display: block;
+  height: 1.2em;
+  line-height: 1.2em;
+  text-align: center;
+}
+
 
 #intro h2 {
   color: #fff;
@@ -291,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
 # counter text
 */
 
-.counter-text = {
+.counter-text  {
 	display: inline-flex;
 	align-items: baseline;
 	gap: 5px;
@@ -718,6 +781,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 .btn-pricing:hover {
   background: #0064e9;
   box-shadow: 0 0 20px rgba(0, 100, 233, 1);
+  color: #FFFFFF
+}
+.btn-pricing:focus {
   color: #FFFFFF
 }
 

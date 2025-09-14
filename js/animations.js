@@ -44,7 +44,6 @@ window.addEventListener('load', () => {
     }, 1500);
   }, 150);
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   const boxes = document.querySelectorAll('#pricing .pricing-box');
   boxes.forEach((box, i) => {
@@ -64,3 +63,66 @@ document.addEventListener('DOMContentLoaded', () => {
   const pricingSection = document.querySelector('#pricing');
   observer.observe(pricingSection);
 });
+
+function animateCounters() {
+  const section = document.querySelector('.counter-section');
+  const counters = document.querySelectorAll('.counter');
+  const labels = document.querySelectorAll('.counter-title');
+  const sectionTop = section.getBoundingClientRect().top;
+  const triggerPoint = window.innerHeight - 100;
+
+  if (sectionTop < triggerPoint && !section.classList.contains('animated')) {
+    section.classList.add('animated');
+
+    // Fade in labels
+    labels.forEach((label, i) => {
+      setTimeout(() => {
+        label.style.opacity = 1;
+        label.style.transform = 'translateY(0)';
+      }, i * 150);
+    });
+
+    // Animate counters
+    counters.forEach(counter => {
+      const target = counter.getAttribute('data-target').toString();
+      counter.style.opacity = 1;
+      counter.style.transform = 'translateY(0)';
+      counter.innerHTML = ''; // clear previous content
+
+      target.split('').forEach(char => {
+        const wrapper = document.createElement('div');
+        wrapper.classList.add('digit-wrapper');
+
+        if (/[0-9]/.test(char)) {
+          const strip = document.createElement('div');
+          strip.classList.add('digit-strip');
+          for (let i = 0; i <= 9; i++) {
+            const span = document.createElement('span');
+            span.textContent = i;
+            strip.appendChild(span);
+          }
+          wrapper.appendChild(strip);
+          counter.appendChild(wrapper);
+          // Animate digit immediately
+          setTimeout(() => {
+            strip.style.transform = `translateY(-${char * 1.2}em)`;
+          }, 50);
+        } else {
+          // Letter or special char
+          wrapper.textContent = char;
+          wrapper.style.opacity = 0;
+          wrapper.style.transform = 'translateY(20px)';
+          counter.appendChild(wrapper);
+          setTimeout(() => {
+            wrapper.style.transition = 'all 0.6s ease-out';
+            wrapper.style.opacity = 1;
+            wrapper.style.transform = 'translateY(0)';
+          }, 50);
+        }
+      });
+    });
+  }
+}
+
+window.addEventListener('scroll', animateCounters);
+window.addEventListener('load', animateCounters);
